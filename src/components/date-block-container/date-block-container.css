@@ -1,3 +1,6 @@
 .date-block-container {
+  padding: 0;
+  margin: 0;
   display: flex;
+  overflow: hidden;
 }

@@ -3,3 +3,30 @@
   padding: 5px;
   padding-top: 30px;
 }
+
+.header {
+  background-color: #035aa6;
+  height: 100px;
+  padding: auto;
+}
+
+.header-text {
+  width: 70vw;
+  margin-left: 15vw;
+  line-height: 100px;
+  vertical-align: middle;
+  font-family: Raleway;
+  font-size: 50px;
+  color: white;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    margin: 0 5vw;
+  }
+
+  .header-text {
+    margin-left: 5vw;
+  }
+}

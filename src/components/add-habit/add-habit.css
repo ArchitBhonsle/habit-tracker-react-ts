@@ -1,0 +1,31 @@
+.add-habit {
+  height: 50px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.add-habit > input {
+  display: block;
+  flex-grow: 100;
+  padding-left: 2%;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Roboto Condensed';
+}
+
+.add-habit > button {
+  display: block;
+  width: 70px;
+  background-color: #035aa6;
+  border: none;
+  color: white;
+  font-size: 30px;
+}
+
+.division {
+  width: 80%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+}

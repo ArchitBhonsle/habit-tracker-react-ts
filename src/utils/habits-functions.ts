@@ -40,3 +40,29 @@ export function deleteEntry(
     return habit;
   });
 }
+
+export function convertLedgerSetToArray(
+  habits: Habit[]
+): { id: string; title: string; ledger: string[] }[] {
+  if (!habits) return [];
+  const convertedHabits = habits.map((habit) => ({
+    id: habit.id,
+    title: habit.title,
+    ledger: Array.from(habit.ledger)
+  }));
+
+  return convertedHabits;
+}
+
+export function convertLedgerArrayToSet(
+  habits: { id: string; title: string; ledger: string[] }[]
+): Habit[] {
+  if (!habits) return [];
+  const convertedHabits = habits.map((habit) => ({
+    id: habit.id,
+    title: habit.title,
+    ledger: new Set(habit.ledger)
+  }));
+
+  return convertedHabits;
+}

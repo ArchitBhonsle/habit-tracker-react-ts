@@ -1,12 +1,9 @@
 .date-block {
-  height: 20px;
-  width: 20px;
+  height: 100%;
+  width: 50px;
+  border-left: 1px solid #035aa6;
 }
 
 .green {
-  background-color: green;
-}
-
-.red {
-  background-color: red;
+  background-color: #035aa6;
 }

@@ -1,11 +1,13 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
 
 import { Habit, Action, HabitsContextType } from '../utils/interfaces';
 import {
   addHabit,
   deleteHabit,
   addEntry,
-  deleteEntry
+  deleteEntry,
+  convertLedgerArrayToSet,
+  convertLedgerSetToArray
 } from '../utils/habits-functions';
 
 export const HabitsContext = createContext<HabitsContextType>({
@@ -38,6 +40,9 @@ const habitsReducer = (habits: Habit[], action: Action) => {
     case 'DELETE_ENTRY':
       console.log('deleteEntry Called', { action });
       return deleteEntry(habits, action.id, action.date);
+    case 'LOAD_HABITS':
+      console.log('habits loaded', { action });
+      return action.habits ? action.habits : [];
     default:
       return habits;
   }
@@ -45,6 +50,27 @@ const habitsReducer = (habits: Habit[], action: Action) => {
 
 const HabitContextManager: React.FC<{ children?: any }> = (props) => {
   const [ habits, dispatch ] = useReducer(habitsReducer, []);
+
+  useEffect(() => {
+    const storedHabits = localStorage.getItem('stored-habits');
+    if (storedHabits) {
+      const parsedStoredHabits = JSON.parse(storedHabits);
+      dispatch({
+        type: 'LOAD_HABITS',
+        habits: convertLedgerArrayToSet(parsedStoredHabits.habits)
+      });
+    }
+  }, []);
+
+  useEffect(
+    () => {
+      const storedHabits = JSON.stringify({
+        habits: convertLedgerSetToArray(habits)
+      });
+      localStorage.setItem('stored-habits', storedHabits);
+    },
+    [ habits ]
+  );
 
   const value = {
     habits: habits,

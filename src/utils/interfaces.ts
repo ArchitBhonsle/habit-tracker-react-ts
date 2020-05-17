@@ -18,4 +18,5 @@ export interface Action {
   title?: string;
   ledger?: string;
   date?: string;
+  habits?: Habit[];
 }

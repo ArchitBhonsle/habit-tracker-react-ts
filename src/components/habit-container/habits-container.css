@@ -1,4 +1,14 @@
 .habits-container {
-  border-top: 1px solid black;
-  margin: 20px 0 0 0;
+  margin-top: 17px;
+}
+
+.container-title {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.date-hint {
+  height: 50px;
+  width: 50px;
+  font-weight: bold;
 }
