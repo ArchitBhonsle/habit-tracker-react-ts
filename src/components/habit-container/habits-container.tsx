@@ -4,14 +4,11 @@ import { HabitsContext } from '../../context/habits-context';
 import HabitCard from '../habit-card/habit-card';
 
 import './habits-container.css';
-import useWindowDimensions from '../hooks/useWindowSize';
 import { convertDateToStr, getNDaysArray } from '../../utils/date-functions';
 
 const HabitsContainer: React.FC<{}> = () => {
   const value = useContext(HabitsContext);
-  const { width } = useWindowDimensions();
-  const blocks = width < 700 ? 5 : 10;
-  const nDaysArray = getNDaysArray(convertDateToStr(new Date()), blocks);
+  const nDaysArray = getNDaysArray(convertDateToStr(new Date()), 10);
   nDaysArray.reverse();
 
   return (

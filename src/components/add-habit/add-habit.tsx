@@ -13,6 +13,7 @@ const AddHabit: React.FC<{}> = () => {
         className='add-habit'
         onSubmit={(e) => {
           e.preventDefault();
+          setTitle('');
         }}
       >
         <input
