@@ -20,7 +20,9 @@ const HabitsContainer: React.FC<{}> = () => {
           </div>
         ))}
       </div>
-      {value.habits.map((habit) => <HabitCard key={habit.id} {...habit} />)}
+      <div>
+        {value.habits.map((habit) => <HabitCard key={habit.id} {...habit} />)}
+      </div>
     </div>
   );
 };
